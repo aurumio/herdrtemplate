@@ -6,6 +6,32 @@ A setup prompt that turns an AI coding agent into a team of agents running insid
 
 The whole template is one file: [`herdr-team-setup.md`](herdr-team-setup.md). Give it to an agent CLI in your project root. The agent interviews you in a few short steps, then writes the team's instructions, roster, and workflow into your project. After that, a `lead` agent brings up the rest of the team in Herdr tabs and hands them work.
 
+## Quickstart
+
+1. **Install the Herdr skill** (one time, global):
+   ```bash
+   npx skills add herdrdev/herdr --skill herdr -g
+   ```
+2. **Copy the setup file into your project root:**
+   ```bash
+   cd /path/to/your/project
+   curl -fsSLO https://raw.githubusercontent.com/aurumio/herdrtemplate/main/herdr-team-setup.md
+   ```
+   (Or copy `herdr-team-setup.md` from a clone of this repo.)
+3. **Run the setup.** Start an agent CLI (`claude`, `codex`, `opencode`, or `pi`) in the project root and say:
+   > Follow herdr-team-setup.md.
+
+   Answer the four questions: project type, roles, agent CLI, files.
+4. **Start the team.** Open the Herdr TUI, open a new tab for `lead`, and start it in that tab's pane:
+   ```bash
+   herdr agent start lead --kind <kind> --pane <pane_id>
+   ```
+   Then tell it:
+   > Follow the Onboard section of .herdrteam/roles/lead/AGENTS.md.
+5. **Give `lead` your first request.** Say *"team, leave"* when you're done.
+
+The sections below explain each step in more detail.
+
 ## What you get
 
 - **A `lead` agent you talk to.** It plans your request, writes handoffs, delegates them to the other roles, checks the results, and reports back. Only `lead` delegates and runs `herdr` commands.
