@@ -142,6 +142,8 @@ A typical development flow: `lead` → architect → developer → tester + revi
 
 **Stop.** Say *"team, leave"* to `lead`. Each role saves its work, writes its log, and updates `memory/`. Then `lead` quits each CLI, closes its pane and group tab, writes a final summary, and closes its own pane last.
 
+**Train a role.** To train or retrain a role after setup, give [`herdr-staff-training.md`](herdr-staff-training.md) to an agent CLI in the project root. It asks which roles to train, proposes changes from what the role's logs and handoffs actually show, writes a playbook into that role's `skills/` folder, and checks the result. Run it with the team stopped.
+
 ## Changing the team
 
 Ask `lead`. It can add a role (after your approval), remove one (its folder is archived to `.herdrteam/roles/_archived/`, not deleted), or start a temporary worker for a one-off task. If the same kind of temporary worker is needed twice, `lead` suggests making it a permanent role.
